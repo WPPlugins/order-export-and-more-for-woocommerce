@@ -487,11 +487,11 @@ class Order extends BaseEntity{
 					break;
 				
 				case 'item_tax' :
-					array_push ( $data, $item['line_tax'] );
+					array_push ( $data, number_format( floatval( $item['line_tax'] ), 2, '.', ',' ) );
 					break;
 				
 				case 'item_total' :
-					array_push ( $data, $item['line_total'] );
+					array_push ( $data, number_format( ( floatval( $item['line_subtotal'] ) + floatval( $item['line_tax'] ) ), 2, '.', ',' ) );
 					break;
 				
 				case 'item_variation' :
